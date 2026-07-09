@@ -109,10 +109,7 @@ export default defineConfig({
     ],
     browser_specific_settings: {
       gecko: {
-        id: 'kensa@codewithevilxd@gmail.com',
-        data_collection_permissions: {
-          required: ['none'],
-        },
+        id: 'kensa@codewithevilxd.me',
       },
     },
   },
