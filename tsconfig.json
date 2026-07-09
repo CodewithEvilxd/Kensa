@@ -1,0 +1,11 @@
+{
+  "extends": "./.wxt/tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "paths": {
+      "@": ["./src/*"],
+      "@/*": ["./src/*"],
+      "@pierre/diffs/react": ["./node_modules/@pierre/diffs/dist/react/index.d.ts"]
+    }
+  }
+}

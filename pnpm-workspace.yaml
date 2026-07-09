@@ -1,0 +1,6 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+  spawn-sync: true
+patchedDependencies:
+  '@pierre/trees': patches/@pierre__trees.patch

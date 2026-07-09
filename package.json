@@ -1,0 +1,62 @@
+{
+  "name": "kensa",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Nishant Gaurav <codewithevilxd@gmail.com>",
+  "homepage": "https://nishantdev.space",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "build:edge": "wxt build -b edge",
+    "build:safari": "wxt build -b safari",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "zip:edge": "wxt zip -b edge",
+    "compile": "tsc --noEmit",
+    "postinstall": "wxt prepare",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "prepare": "husky",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
+  },
+  "dependencies": {
+    "@octokit/request-error": "^7.1.0",
+    "@octokit/rest": "^22.0.1",
+    "@pierre/diffs": "1.2.11",
+    "@pierre/theme": "1.1.0",
+    "@pierre/theming": "0.0.2",
+    "@pierre/trees": "1.0.0-beta.4",
+    "@shikijs/themes": "^4.3.0",
+    "@tabler/icons-react": "^3.44.0",
+    "@tanstack/react-query": "^5.101.2",
+    "markdown-to-jsx": "^9.8.2",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.2.0",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@wxt-dev/auto-icons": "^1.1.1",
+    "@wxt-dev/module-react": "^1.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "oxfmt": "^0.56.0",
+    "oxlint": "^1.71.0",
+    "patch-package": "^8.0.1",
+    "shiki": "^4.3.0",
+    "typescript": "6.0.3",
+    "vite": "^8.1.0",
+    "wxt": "^0.20.27"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,mjs,cjs}": [
+      "oxlint --fix",
+      "oxfmt --no-error-on-unmatched-pattern"
+    ],
+    "*.{json,css,md}": "oxfmt --no-error-on-unmatched-pattern"
+  }
+}
