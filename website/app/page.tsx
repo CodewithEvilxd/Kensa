@@ -219,13 +219,13 @@ export default function Home() {
             <div style={{ background: 'var(--card-white)', padding: '0.75rem 1.25rem', borderBottom: '3.5px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
               
               {/* Left Side: Mock Window Buttons + File Title */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <div style={{ display: 'flex', gap: '0.35rem' }}>
                   <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ef4444', border: '1.5px solid var(--border-color)' }}></span>
                   <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#f59e0b', border: '1.5px solid var(--border-color)' }}></span>
                   <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#10b981', border: '1.5px solid var(--border-color)' }}></span>
                 </div>
-                <div style={{ borderLeft: '2px solid var(--border-color)', paddingLeft: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <div style={{ borderLeft: '2px solid var(--border-color)', paddingLeft: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
                   <span style={{ fontSize: '0.8rem', fontWeight: '850', fontFamily: 'monospace', background: 'var(--accent-yellow)', padding: '0.15rem 0.35rem', border: '1.5px solid var(--border-color)', borderRadius: '4px' }}>DIFF</span>
                   <span style={{ fontSize: '0.85rem', fontWeight: '750', fontFamily: 'monospace', color: 'var(--text-color)' }}>src/components/app/review.tsx</span>
                   <span style={{ fontSize: '0.75rem', color: '#10b981', fontWeight: '800', background: 'rgba(16,185,129,0.1)', padding: '0.1rem 0.35rem', borderRadius: '4px', border: '1.5px solid #10b981', marginLeft: '0.25rem' }}>+2</span>
@@ -289,7 +289,8 @@ export default function Home() {
                 minHeight: '260px',
                 transition: 'all 0.15s ease',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                overflowX: 'auto'
               }}
             >
               
@@ -307,7 +308,7 @@ export default function Home() {
 
               {isSplit ? (
                 /* â”€â”€â”€ SPLIT VIEW LAYOUT WITH REAL PRISM SYNTAX HIGHLIGHTING â”€â”€â”€ */
-                <div style={{ display: 'flex', width: '100%', flexGrow: 1 }}>
+                <div style={{ display: 'flex', width: '100%', flexGrow: 1, minWidth: '780px' }}>
                   {/* Left Column (Original/Deleted) */}
                   <div style={{ width: '50%', borderRight: `2px solid ${styleTheme.border}`, display: 'flex', flexDirection: 'column' }}>
                     <Highlight theme={selectedTheme} code={leftSplitCode} language="tsx">
@@ -506,10 +507,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* â”€â”€â”€ Why Kensa (3-column info bar) â”€â”€â”€ */}
+      {/* ─── Why Kensa (3-column info bar) ─── */}
       <section className="container" style={{ paddingBottom: '3rem' }}>
-        <div className="brutal-card" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
-          <div>
+        <div className="brutal-card why-kensa-bar" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
+          <div className="why-kensa-col">
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Zap size={18} style={{ color: 'var(--accent-orange)' }} /> Bypasses <span className="highlight-orange">GitHub Caps</span>
             </h3>
@@ -517,7 +518,7 @@ export default function Home() {
               No more capped diff files. Kensa streams large pull requests seamlessly by processing raw patches.
             </p>
           </div>
-          <div style={{ borderLeft: '2.5px dashed var(--border-color)', paddingLeft: '1.5rem' }}>
+          <div className="why-kensa-col why-kensa-col--border">
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Cpu size={18} style={{ color: 'var(--accent-blue)' }} /> Zero <span className="highlight-blue">UI Freezes</span>
             </h3>
@@ -525,7 +526,7 @@ export default function Home() {
               Code highlighting and structure parsing are offloaded to background <code style={{ fontFamily: 'monospace', fontWeight: '800' }}>web workers</code>.
             </p>
           </div>
-          <div style={{ borderLeft: '2.5px dashed var(--border-color)', paddingLeft: '1.5rem' }}>
+          <div className="why-kensa-col why-kensa-col--border">
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Package size={18} style={{ color: 'var(--accent-green)' }} /> Under <span className="highlight-green">2 MB</span>
             </h3>
@@ -536,7 +537,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* â”€â”€â”€ GitHub Native vs Kensa Comparison Table â”€â”€â”€ */}
+      {/* ─── GitHub Native vs Kensa Comparison Table ─── */}
       <section id="comparison" className="section" style={{ background: 'var(--card-white)' }}>
         <div className="container">
           <div className="section-header">
@@ -545,7 +546,7 @@ export default function Home() {
             <p>Why modern development teams prefer reviewing patches with Kensa.</p>
           </div>
 
-          <div className="brutal-card" style={{ padding: '0', overflow: 'hidden' }}>
+          <div className="brutal-card" style={{ padding: '0', overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.95rem' }}>
               <thead>
                 <tr style={{ background: 'var(--card-cream)', borderBottom: '3px solid var(--border-color)' }}>

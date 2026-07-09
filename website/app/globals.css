@@ -847,10 +847,35 @@ p {
   margin: 0.75rem 0;
 }
 
+.why-kensa-col--border {
+  border-left: 2.5px dashed var(--border-color);
+  padding-left: 1.5rem;
+}
+
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
+  .navbar-inner {
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+
   .nav-links {
-    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .why-kensa-col--border {
+    border-left: none;
+    border-top: 2.5px dashed var(--border-color);
+    padding-left: 0;
+    padding-top: 1.5rem;
   }
   
   .stats-bar {
