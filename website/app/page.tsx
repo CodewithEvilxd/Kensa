@@ -184,30 +184,29 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Browser Compat badges with real-style indicators */}
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '0.75rem' }}>
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '0.75rem', flexWrap: 'wrap' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--border-color)' }}>Supported on:</span>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               {/* Chrome */}
-              <div className="brutal-badge" style={{ background: '#fff', padding: '0.35rem 0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', transform: 'rotate(-1deg)', boxShadow: '2px 2px 0px var(--border-color)', borderRadius: '8px' }}>
+              <a href="https://github.com/CodewithEvilxd/Kensa/releases/download/v1/kensa-1.0.0-chrome.zip" className="brutal-badge" style={{ textDecoration: 'none', color: 'inherit', background: '#fff', padding: '0.35rem 0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', transform: 'rotate(-1deg)', boxShadow: '2px 2px 0px var(--border-color)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.15s ease' }} onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.05) rotate(-1deg)'; e.currentTarget.style.boxShadow = '4px 4px 0px var(--border-color)'; }} onMouseOut={(e) => { e.currentTarget.style.transform = 'rotate(-1deg)'; e.currentTarget.style.boxShadow = '2px 2px 0px var(--border-color)'; }}>
                 <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos/src/chrome/chrome.svg" alt="Chrome" style={{ width: '16px', height: '16px', display: 'block' }} />
                 <span style={{ fontSize: '0.75rem', fontWeight: '800' }}>Chrome</span>
-              </div>
+              </a>
               {/* Firefox */}
-              <div className="brutal-badge" style={{ background: '#fff', padding: '0.35rem 0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', transform: 'rotate(1.5deg)', boxShadow: '2px 2px 0px var(--border-color)', borderRadius: '8px' }}>
+              <a href="https://github.com/CodewithEvilxd/Kensa/releases/download/v1/kensa-1.0.0-firefox.zip" className="brutal-badge" style={{ textDecoration: 'none', color: 'inherit', background: '#fff', padding: '0.35rem 0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', transform: 'rotate(1.5deg)', boxShadow: '2px 2px 0px var(--border-color)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.15s ease' }} onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.05) rotate(1.5deg)'; e.currentTarget.style.boxShadow = '4px 4px 0px var(--border-color)'; }} onMouseOut={(e) => { e.currentTarget.style.transform = 'rotate(1.5deg)'; e.currentTarget.style.boxShadow = '2px 2px 0px var(--border-color)'; }}>
                 <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos/src/firefox/firefox.svg" alt="Firefox" style={{ width: '16px', height: '16px', display: 'block' }} />
                 <span style={{ fontSize: '0.75rem', fontWeight: '800' }}>Firefox</span>
-              </div>
+              </a>
               {/* Safari */}
-              <div className="brutal-badge" style={{ background: '#fff', padding: '0.35rem 0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', transform: 'rotate(-0.5deg)', boxShadow: '2px 2px 0px var(--border-color)', borderRadius: '8px' }}>
+              <a href="https://github.com/CodewithEvilxd/Kensa/releases/download/v1/kensa-1.0.0-safari.zip" className="brutal-badge" style={{ textDecoration: 'none', color: 'inherit', background: '#fff', padding: '0.35rem 0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', transform: 'rotate(-0.5deg)', boxShadow: '2px 2px 0px var(--border-color)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.15s ease' }} onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.05) rotate(-0.5deg)'; e.currentTarget.style.boxShadow = '4px 4px 0px var(--border-color)'; }} onMouseOut={(e) => { e.currentTarget.style.transform = 'rotate(-0.5deg)'; e.currentTarget.style.boxShadow = '2px 2px 0px var(--border-color)'; }}>
                 <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos/src/safari/safari.svg" alt="Safari" style={{ width: '16px', height: '16px', display: 'block' }} />
                 <span style={{ fontSize: '0.75rem', fontWeight: '800' }}>Safari</span>
-              </div>
+              </a>
               {/* Edge */}
-              <div className="brutal-badge" style={{ background: '#fff', padding: '0.35rem 0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', transform: 'rotate(1.2deg)', boxShadow: '2px 2px 0px var(--border-color)', borderRadius: '8px' }}>
+              <a href="https://github.com/CodewithEvilxd/Kensa/releases/download/v1/kensa-1.0.0-edge.zip" className="brutal-badge" style={{ textDecoration: 'none', color: 'inherit', background: '#fff', padding: '0.35rem 0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', transform: 'rotate(1.2deg)', boxShadow: '2px 2px 0px var(--border-color)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.15s ease' }} onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.05) rotate(1.2deg)'; e.currentTarget.style.boxShadow = '4px 4px 0px var(--border-color)'; }} onMouseOut={(e) => { e.currentTarget.style.transform = 'rotate(1.2deg)'; e.currentTarget.style.boxShadow = '2px 2px 0px var(--border-color)'; }}>
                 <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos/src/edge/edge.svg" alt="Edge" style={{ width: '16px', height: '16px', display: 'block' }} />
                 <span style={{ fontSize: '0.75rem', fontWeight: '800' }}>Edge</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>
