@@ -26,7 +26,7 @@ const HEADER_ACTIONS_SELECTORS = [
   '.PageHeader-actions',
 ] as const;
 
-const VIEW_DIFF_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" aria-hidden="true" focusable="false" class="gprv-view-diff-icon"><path fill="currentColor" d="M40.1 467.1l-11.2 9C25.7 478.6 21.8 480 17.8 480 8 480 0 472 0 462.2L0 192C0 86 86 0 192 0S384 86 384 192l0 270.2c0 9.8-8 17.8-17.8 17.8-4 0-7.9-1.4-11.1-3.9l-11.2-9c-13.4-10.7-32.8-9-44.1 3.9L269.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6l-26.6-30.5c-12.7-14.6-35.4-14.6-48.2 0L141.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6L84.2 471c-11.3-12.9-30.7-14.6-44.1-3.9zM160 192a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>`;
+const VIEW_DIFF_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false" class="gprv-view-diff-icon"><ellipse cx="32" cy="36" rx="20" ry="18" fill="currentColor" opacity="0.15"/><ellipse cx="32" cy="35" rx="19" ry="17" fill="currentColor"/><ellipse cx="22" cy="29" rx="5" ry="6" fill="currentColor" opacity="0.3"/><ellipse cx="42" cy="29" rx="5" ry="6" fill="currentColor" opacity="0.3"/><ellipse cx="22" cy="30" rx="3.5" ry="4.5" fill="white"/><ellipse cx="42" cy="30" rx="3.5" ry="4.5" fill="white"/><circle cx="22" cy="30" r="2" fill="#1a1a1a"/><circle cx="42" cy="30" r="2" fill="#1a1a1a"/><ellipse cx="32" cy="39" rx="5" ry="3" fill="currentColor" opacity="0.25"/><ellipse cx="32" cy="39.5" rx="3.5" ry="2" fill="#1a1a1a" opacity="0.6"/><path d="M27 43 Q32 46 37 43" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/><path d="M14 22 Q10 14 15 10 Q18 18 22 22" fill="currentColor" opacity="0.8"/><path d="M50 22 Q54 14 49 10 Q46 18 42 22" fill="currentColor" opacity="0.8"/><ellipse cx="32" cy="20" rx="14" ry="10" fill="currentColor"/><ellipse cx="24" cy="18" rx="4" ry="5" fill="currentColor" opacity="0.4"/><ellipse cx="40" cy="18" rx="4" ry="5" fill="currentColor" opacity="0.4"/></svg>`;
 
 type ViewDiffButtonCallbacks = {
   onOpen: (pullRequestUrl: string) => void;
@@ -287,8 +287,8 @@ function createButton(
   button.id = BUTTON_ID;
   button.type = 'button';
   button.className = `${anchorControl?.className || 'btn gprv-inline-button'} gprv-view-diff-button`;
-  button.setAttribute('aria-label', 'View Diff');
-  button.innerHTML = `${VIEW_DIFF_ICON_SVG}<span class="gprv-view-diff-label">View Diff</span>`;
+  button.setAttribute('aria-label', 'Review PR');
+  button.innerHTML = `${VIEW_DIFF_ICON_SVG}<span class="gprv-view-diff-label">Review PR</span>`;
 
   if (anchorControl instanceof HTMLElement) {
     const style = anchorControl.getAttribute('style');
