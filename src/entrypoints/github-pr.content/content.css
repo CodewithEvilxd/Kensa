@@ -24,8 +24,17 @@
 }
 
 .gprv-view-diff-button {
+  align-self: center !important;
+  height: 32px !important;
+  padding: 4px 12px !important;
+  margin: 0 8px !important;
+  font-size: 13px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
   border: 2px solid #1a1a1a !important;
-  box-shadow: 3px 3px 0px #1a1a1a !important;
+  box-shadow: 2px 2px 0px #1a1a1a !important;
   border-radius: 8px !important;
   background-color: #3fc197 !important;
   color: #1a1a1a !important;
@@ -36,11 +45,11 @@
 .gprv-view-diff-button:hover {
   background-color: #38ab86 !important;
   transform: translate(-1px, -1px) !important;
-  box-shadow: 4px 4px 0px #1a1a1a !important;
+  box-shadow: 3px 3px 0px #1a1a1a !important;
   color: #1a1a1a !important;
 }
 
 .gprv-view-diff-button:active {
-  transform: translate(2px, 2px) !important;
+  transform: translate(1px, 1px) !important;
   box-shadow: 1px 1px 0px #1a1a1a !important;
 }

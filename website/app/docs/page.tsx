@@ -28,11 +28,13 @@ export default function Docs() {
       <span style={{
         background: gradient,
         padding: '0.15rem 0.4rem',
-        borderRadius: '160px 18px 140px 10px / 18px 30px 20px 40px',
+        borderRadius: '6px',
         fontWeight: '800',
         color: 'var(--border-color)',
-        display: 'inline-block',
-        lineHeight: '1.2'
+        display: 'inline',
+        lineHeight: '1.2',
+        boxDecorationBreak: 'clone',
+        WebkitBoxDecorationBreak: 'clone'
       }}>
         {children}
       </span>
@@ -40,27 +42,26 @@ export default function Docs() {
   };
 
   return (
-    <div style={{ background: '#fcfbf7', minHeight: '100vh', color: '#1a1a2e', fontFamily: "'Inter', sans-serif" }}>
+    <div className="docs-page">
       {/* ─── Navbar ─── */}
-      <nav className="navbar" style={{ background: '#fcfbf7', borderBottom: '3.5px solid var(--border-color)' }}>
+      <nav className="navbar">
         <div className="container navbar-inner">
           <div className="brand">
-            <Link href="/" className="brand" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-              <div className="logo-square" style={{ borderRadius: '12px' }}>
+            <Link href="/" className="brand docs-navbar-brand">
+              <div className="logo-square">
                 <img src="/logo.png" alt="Kensa" />
               </div>
-              <span className="brand-title" style={{ color: '#1a1a2e', fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: '950', fontSize: '1.25rem', letterSpacing: '-0.03em' }}>Kensa</span>
+              <span className="brand-title">Kensa</span>
             </Link>
-            <span className="brutal-badge" style={{ marginLeft: '0.65rem', fontSize: '0.65rem', background: 'var(--accent-orange)', color: '#fff', borderColor: 'var(--border-color)', borderRadius: '6px' }}>Docs v1.0.0</span>
+            <span className="brutal-badge docs-badge">Docs v1.0.0</span>
           </div>
           <div className="nav-links">
-            <Link href="/" className="nav-link" style={{ color: '#1a1a2e', fontWeight: '800' }}>Home</Link>
+            <Link href="/" className="nav-link nav-link-home">Home</Link>
             <a
               href="https://github.com/codewithevilxd/kensa"
               target="_blank"
               rel="noopener noreferrer"
-              className="brutal-button brutal-button-primary"
-              style={{ padding: '0.5rem 1rem', fontSize: '0.8rem', borderRadius: '8px' }}
+              className="brutal-button brutal-button-primary docs-github-cta"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub
             </a>
@@ -69,21 +70,9 @@ export default function Docs() {
       </nav>
 
       {/* ─── Header Hero ─── */}
-      <header style={{ borderBottom: '3.5px solid var(--border-color)', background: 'var(--accent-orange)', padding: '5.5rem 0', position: 'relative', overflow: 'hidden' }}>
-        <div style={{
-          position: 'absolute',
-          bottom: '-35px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '100%',
-          maxWidth: '1200px',
-          height: '240px',
-          pointerEvents: 'none',
-          userSelect: 'none',
-          opacity: 0.25,
-          zIndex: 0
-        }}>
-          <svg viewBox="0 0 1200 240" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
+      <header className="docs-hero">
+        <div className="hero-watermark-wrap">
+          <svg viewBox="0 0 1200 240" xmlns="http://www.w3.org/2000/svg" className="hero-watermark-svg">
             <path id="hero-curve" d="M 50,150 L 1150,150" fill="none" />
             <text fill="#ffffff" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '130px', fontWeight: 950, letterSpacing: '2px', textAnchor: 'middle' }}>
               <textPath xlinkHref="#hero-curve" startOffset="50%">
@@ -93,54 +82,28 @@ export default function Docs() {
           </svg>
         </div>
 
-        <div className="container" style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: '0.85rem', zIndex: 1 }}>
-          <div style={{ width: 'fit-content', marginBottom: '0.25rem' }}>
-            <span style={{
-              background: 'linear-gradient(100deg, rgba(240, 143, 160, 0.15) 1%, rgba(240, 143, 160, 0.85) 6%, rgba(240, 143, 160, 0.9) 92%, rgba(240, 143, 160, 0.2) 98%)',
-              padding: '0.2rem 0.5rem',
-              borderRadius: '160px 18px 140px 10px / 18px 30px 20px 40px',
-              fontWeight: '950',
-              color: 'var(--border-color)',
-              fontSize: '0.75rem',
-              letterSpacing: '0.12em',
-              fontFamily: "'Bricolage Grotesque', sans-serif",
-              display: 'inline-block'
-            }}>
-              GUIDES & SPECS
-            </span>
+        <div className="container hero-inner">
+          <div className="hero-badge-wrap">
+            <span className="hero-badge">GUIDES &amp; SPECS</span>
           </div>
           
-          <h1 style={{
-            fontFamily: "'Bricolage Grotesque', sans-serif",
-            fontSize: 'clamp(2.6rem, 6.5vw, 4.2rem)',
-            fontWeight: '950',
-            letterSpacing: '-0.04em',
-            lineHeight: '1.3',
-            margin: 0,
-            color: 'var(--border-color)',
-            display: 'inline-block'
-          }}>
-            <span style={{
-              background: 'linear-gradient(102deg, rgba(245, 212, 90, 0.2) 2%, rgba(245, 212, 90, 0.95) 8%, rgba(245, 212, 90, 0.9) 92%, rgba(245, 212, 90, 0.2) 98%)',
-              padding: '0.25rem 0.85rem',
-              borderRadius: '220px 25px 180px 15px / 20px 60px 22px 70px',
-              display: 'inline-block'
-            }}>
+          <h1 className="docs-hero-title">
+            <span className="docs-hero-title-highlight">
               Kensa Documentation
             </span>
           </h1>
 
-          <p style={{ fontSize: '1.15rem', color: '#fff', opacity: 0.95, maxWidth: '620px', fontWeight: '500', lineHeight: '1.65', margin: '0.5rem 0 0 0' }}>
+          <p className="docs-hero-subtitle">
             Explore deep architecture insights, custom settings, advanced hotkeys, and rate limit optimizations to supercharge your pull requests.
           </p>
         </div>
       </header>
 
       {/* ─── Docs Layout ─── */}
-      <main className="container docs-layout" style={{ background: '#fcfbf7', paddingTop: '4rem', paddingBottom: '4rem' }}>
+      <main className="container docs-layout docs-main">
         {/* Sidebar */}
         <aside className="docs-sidebar">
-          <div className="brutal-card" style={{ padding: '1.5rem', background: '#fff', border: '3.5px solid var(--border-color)', position: 'sticky', top: '100px', boxShadow: '6px 6px 0px var(--border-color)', borderRadius: '16px' }}>
+          <div className="brutal-card docs-sidebar-card">
             <div className="docs-nav-group">
               <span className="docs-group-title" style={{ color: 'var(--accent-orange)', fontSize: '0.7rem', letterSpacing: '0.12em', fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: '900', display: 'flex', alignItems: 'center', gap: '0.35rem' }}><BookOpen size={12} /> CORE GUIDES</span>
               <a href="#getting-started" className={`docs-nav-link ${activeSection === 'getting-started' ? 'docs-nav-link-active' : ''}`} onClick={() => setActiveSection('getting-started')} style={{ fontWeight: '700', fontSize: '0.95rem' }}>Getting Started</a>
@@ -166,7 +129,7 @@ export default function Docs() {
         <section className="docs-content" style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem' }}>
           
           {/* Section: Getting Started */}
-          <div id="getting-started" className="brutal-card docs-section" style={{ background: '#fff', border: '3.5px solid var(--border-color)', padding: '2.5rem', boxShadow: '6px 6px 0px var(--border-color)', borderRadius: '16px' }}>
+          <div id="getting-started" className="brutal-card docs-section">
             <h2 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: '900', letterSpacing: '-0.02em', margin: '0 0 1.5rem 0', color: 'var(--border-color)' }}>
               <Zap size={24} style={{ color: 'var(--accent-orange)' }} /> Getting Started
             </h2>
@@ -180,7 +143,7 @@ export default function Docs() {
                 { step: "02", title: "Token Generation", desc: "Generate a secure GitHub Personal Access Token (PAT) with read permissions. This is critical to bypass standard API rate limiting configurations." },
                 { step: "03", title: "Instant Activation", desc: "Open any pull request page on GitHub. The extension injects a highly visible 'View with Kensa' button onto the files toolbar for instant launching." }
               ].map((item, idx) => (
-                <div key={idx} style={{ display: 'flex', gap: '1.25rem', background: '#fefcf5', padding: '1.5rem', borderRadius: '12px', border: '2.5px solid var(--border-color)', boxShadow: '4px 4px 0px var(--border-color)' }}>
+                <div key={idx} className="docs-step-card">
                   <span style={{ fontSize: '1.65rem', fontWeight: '950', color: 'var(--accent-orange)', fontFamily: "'Bricolage Grotesque', sans-serif", lineHeight: '1' }}>{item.step}</span>
                   <div>
                     <h4 style={{ margin: '0 0 0.35rem 0', fontWeight: '900', fontSize: '1.15rem', color: 'var(--border-color)', fontFamily: "'Bricolage Grotesque', sans-serif" }}>{item.title}</h4>
@@ -192,7 +155,7 @@ export default function Docs() {
           </div>
 
           {/* Section: Configuration */}
-          <div id="configuration" className="brutal-card docs-section" style={{ background: '#fff', border: '3.5px solid var(--border-color)', padding: '2.5rem', boxShadow: '6px 6px 0px var(--border-color)', borderRadius: '16px' }}>
+          <div id="configuration" className="brutal-card docs-section">
             <h2 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: '900', letterSpacing: '-0.02em', margin: '0 0 1.5rem 0', color: 'var(--border-color)' }}>
               <Settings size={24} style={{ color: 'var(--accent-orange)' }} /> Token Configuration
             </h2>
@@ -209,14 +172,14 @@ export default function Docs() {
               </p>
             </div>
 
-            <div className="code-block" style={{ background: 'var(--border-color)', border: '2.5px solid var(--border-color)', padding: '1.25rem', borderRadius: '10px', fontFamily: 'monospace', fontSize: '0.95rem', color: '#fff', position: 'relative', boxShadow: '4px 4px 0px rgba(0,0,0,0.15)' }}>
-              <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '0.65rem', color: 'rgba(255,255,255,0.4)', fontWeight: '800', fontFamily: 'sans-serif' }}>PATHWAY</span>
+            <div className="code-block code-block--path">
+              <span className="code-block-pathway">PATHWAY</span>
               GitHub Settings → Developer Settings → Personal Access Tokens → Tokens (classic)
             </div>
           </div>
 
           {/* Section: Split View */}
-          <div id="split-view" className="brutal-card docs-section" style={{ background: '#fff', border: '3.5px solid var(--border-color)', padding: '2.5rem', boxShadow: '6px 6px 0px var(--border-color)', borderRadius: '16px' }}>
+          <div id="split-view" className="brutal-card docs-section">
             <h2 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: '900', letterSpacing: '-0.02em', margin: '0 0 1.5rem 0', color: 'var(--border-color)' }}>
               <Eye size={24} style={{ color: 'var(--accent-orange)' }} /> Dual Split View
             </h2>
@@ -231,7 +194,7 @@ export default function Docs() {
           </div>
 
           {/* Section: Batch Reviews */}
-          <div id="batch-reviews" className="brutal-card docs-section" style={{ background: '#fff', border: '3.5px solid var(--border-color)', padding: '2.5rem', boxShadow: '6px 6px 0px var(--border-color)', borderRadius: '16px' }}>
+          <div id="batch-reviews" className="brutal-card docs-section">
             <h2 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: '900', letterSpacing: '-0.02em', margin: '0 0 1.5rem 0', color: 'var(--border-color)' }}>
               <MessageSquare size={24} style={{ color: 'var(--accent-orange)' }} /> Batch Review Pipeline
             </h2>
@@ -251,7 +214,7 @@ export default function Docs() {
           </div>
 
           {/* Section: Shortcuts */}
-          <div id="shortcuts" className="brutal-card docs-section" style={{ background: '#fff', border: '3.5px solid var(--border-color)', padding: '2.5rem', boxShadow: '6px 6px 0px var(--border-color)', borderRadius: '16px' }}>
+          <div id="shortcuts" className="brutal-card docs-section">
             <h2 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: '900', letterSpacing: '-0.02em', margin: '0 0 1.5rem 0', color: 'var(--border-color)' }}>
               <Keyboard size={24} style={{ color: 'var(--accent-orange)' }} /> Keyboard Navigation
             </h2>
@@ -290,7 +253,7 @@ export default function Docs() {
           </div>
 
           {/* Section: Architecture */}
-          <div id="architecture" className="brutal-card docs-section" style={{ background: '#fff', border: '3.5px solid var(--border-color)', padding: '2.5rem', boxShadow: '6px 6px 0px var(--border-color)', borderRadius: '16px' }}>
+          <div id="architecture" className="brutal-card docs-section">
             <h2 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: '900', letterSpacing: '-0.02em', margin: '0 0 1.5rem 0', color: 'var(--border-color)' }}>
               <Terminal size={24} style={{ color: 'var(--accent-orange)' }} /> Architecture & Web Workers
             </h2>
@@ -305,41 +268,44 @@ export default function Docs() {
               </h4>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'relative' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{ background: 'var(--accent-orange)', color: '#fff', border: '2px solid var(--border-color)', borderRadius: '8px', padding: '0.5rem 1rem', fontWeight: '800', fontSize: '0.85rem', width: '160px', textAlign: 'center', boxShadow: '3px 3px 0px var(--border-color)' }}>GitHub API Call</div>
-                  <span style={{ color: 'var(--border-color)', fontWeight: '900' }}>→</span>
-                  <div style={{ background: '#fff', color: 'var(--border-color)', border: '2px solid var(--border-color)', borderRadius: '8px', padding: '0.5rem 1rem', fontWeight: '800', fontSize: '0.85rem', flex: 1, boxShadow: '3px 3px 0px var(--border-color)' }}>Retrieves raw diff patches</div>
+                <div className="docs-flow-step">
+                  <div className="box-fixed box-accent">GitHub API Call</div>
+                  <span className="arrow-desktop">→</span>
+                  <span className="arrow-mobile">↓</span>
+                  <div className="box-fluid">Retrieves raw diff patches</div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{ background: 'var(--border-color)', color: '#fff', border: '2px solid var(--border-color)', borderRadius: '8px', padding: '0.5rem 1rem', fontWeight: '800', fontSize: '0.85rem', width: '160px', textAlign: 'center', boxShadow: '3px 3px 0px rgba(0,0,0,0.1)' }}>Web Worker (Bg)</div>
-                  <span style={{ color: 'var(--border-color)', fontWeight: '900' }}>→</span>
-                  <div style={{ background: '#fff', color: 'var(--border-color)', border: '2px solid var(--border-color)', borderRadius: '8px', padding: '0.5rem 1rem', fontWeight: '800', fontSize: '0.85rem', flex: 1, boxShadow: '3px 3px 0px var(--border-color)' }}>Parses files <Highlight color="blue">concurrently</Highlight> into virtual AST segments</div>
+                <div className="docs-flow-step">
+                  <div className="box-fixed box-dark">Web Worker (Bg)</div>
+                  <span className="arrow-desktop">→</span>
+                  <span className="arrow-mobile">↓</span>
+                  <div className="box-fluid">Parses files <Highlight color="blue">concurrently</Highlight> into virtual AST segments</div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{ background: 'var(--accent-orange)', color: '#fff', border: '2px solid var(--border-color)', borderRadius: '8px', padding: '0.5rem 1rem', fontWeight: '800', fontSize: '0.85rem', width: '160px', textAlign: 'center', boxShadow: '3px 3px 0px var(--border-color)' }}>Virtual Scroller</div>
-                  <span style={{ color: 'var(--border-color)', fontWeight: '900' }}>→</span>
-                  <div style={{ background: '#fff', color: 'var(--border-color)', border: '2px solid var(--border-color)', borderRadius: '8px', padding: '0.5rem 1rem', fontWeight: '800', fontSize: '0.85rem', flex: 1, boxShadow: '3px 3px 0px var(--border-color)' }}>Renders DOM incrementally inside <Highlight color="yellow">viewport only</Highlight></div>
+                <div className="docs-flow-step">
+                  <div className="box-fixed box-accent">Virtual Scroller</div>
+                  <span className="arrow-desktop">→</span>
+                  <span className="arrow-mobile">↓</span>
+                  <div className="box-fluid">Renders DOM incrementally inside <Highlight color="yellow">viewport only</Highlight></div>
                 </div>
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.25rem' }}>
+            <div className="flow-grid">
               {[
                 { title: "Parallel Diff Parsing", desc: "Raw patches are transferred directly to background Web Workers. The worker threads parse diff changes into virtual AST objects asynchronously without ever halting UI frames." },
                 { title: "Incremental DOM Render", desc: "Parsed structures are rendered on the UI main thread using virtual scrolling. Only the code lines visible in your active viewport are drawn, enabling infinite-length files." }
               ].map((item, idx) => (
-                <div key={idx} style={{ padding: '1.25rem', background: '#fefcf5', borderRadius: '10px', border: '2.5px solid var(--border-color)', borderLeft: '8px solid var(--accent-orange)', boxShadow: '4px 4px 0px var(--border-color)' }}>
-                  <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--border-color)', fontSize: '1.1rem', fontWeight: '800' }}>{item.title}</h4>
-                  <p style={{ margin: 0, fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.75' }}>{item.desc}</p>
+                <div key={idx} className="flow-card">
+                  <h4>{item.title}</h4>
+                  <p>{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Section: Rate Limits */}
-          <div id="rate-limits" className="brutal-card docs-section" style={{ background: '#fff', border: '3.5px solid var(--border-color)', padding: '2.5rem', boxShadow: '6px 6px 0px var(--border-color)', borderRadius: '16px' }}>
+          <div id="rate-limits" className="brutal-card docs-section">
             <h2 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: '900', letterSpacing: '-0.02em', margin: '0 0 1.5rem 0', color: 'var(--border-color)' }}>
               <AlertTriangle size={24} style={{ color: 'var(--accent-orange)' }} /> Rate Limit Tuning
             </h2>
@@ -360,12 +326,12 @@ export default function Docs() {
           <FooterWatermark />
           <div className="footer-grid" style={{ position: 'relative', zIndex: 1 }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div className="brand">
+              <Link href="/" className="brand" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
                 <div className="logo-square" style={{ borderRadius: '10px' }}>
                   <img src="/logo.png" alt="Kensa" />
                 </div>
                 <span className="brand-title" style={{ color: '#fff', fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: '900' }}>Kensa</span>
-              </div>
+              </Link>
               <p style={{ maxWidth: '300px', fontSize: '0.85rem' }}>
                 Ultra-fast GitHub PR diff viewer. Built for developers who value <span style={{ background: '#f5d45a', padding: '0.25rem 0.75rem', fontWeight: '800', color: '#1a1a2e', borderRadius: '95% 4% 92% 5% / 4% 95% 6% 95%', display: 'inline-block', transform: 'rotate(-1.5deg)', border: '2px solid var(--border-color)', boxShadow: '3px 3px 0px var(--border-color)' }}>speed and clarity</span>.
               </p>
@@ -383,7 +349,7 @@ export default function Docs() {
               <h4>Connect</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 <li><a href="https://github.com/codewithevilxd/kensa" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</a></li>
-                <li><a href="mailto:codewithevilxd@gmail.com">Email</a></li>
+                <li><a href="mailto:codewithevilxd@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>Email</a></li>
                 <li><a href="https://nishantdev.space" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>nishantdev.space <ExternalLink size={11} /></a></li>
                 <li><a href="https://rajdev.me" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>rajdev.me <ExternalLink size={11} /></a></li>
               </ul>

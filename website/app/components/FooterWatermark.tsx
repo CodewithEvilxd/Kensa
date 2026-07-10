@@ -2,7 +2,7 @@
 
 export default function FooterWatermark() {
   return (
-    <div style={{
+    <div className="footer-watermark-wrap" style={{
       position: 'absolute',
       bottom: '10px',
       left: '50%',
@@ -12,7 +12,7 @@ export default function FooterWatermark() {
       height: '240px',
       pointerEvents: 'none',
       userSelect: 'none',
-      overflow: 'visible',
+      overflow: 'hidden',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'flex-end',
@@ -28,7 +28,7 @@ export default function FooterWatermark() {
           left: 0,
           width: '100%',
           height: '100%',
-          overflow: 'visible',
+          overflow: 'hidden',
         }}
         aria-hidden="true"
       >

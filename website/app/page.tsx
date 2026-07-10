@@ -184,9 +184,9 @@ export default function Home() {
             </Link>
           </div>
 
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '0.75rem', flexWrap: 'wrap' }}>
+          <div className="supported-on-container" style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '0.75rem', flexWrap: 'wrap' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--border-color)' }}>Supported on:</span>
-            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
               {/* Chrome */}
               <a href="https://github.com/CodewithEvilxd/Kensa/releases/download/v1/kensa-1.0.0-chrome.zip" className="brutal-badge" style={{ textDecoration: 'none', color: 'inherit', background: '#fff', padding: '0.35rem 0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', transform: 'rotate(-1deg)', boxShadow: '2px 2px 0px var(--border-color)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.15s ease' }} onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.05) rotate(-1deg)'; e.currentTarget.style.boxShadow = '4px 4px 0px var(--border-color)'; }} onMouseOut={(e) => { e.currentTarget.style.transform = 'rotate(-1deg)'; e.currentTarget.style.boxShadow = '2px 2px 0px var(--border-color)'; }}>
                 <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos/src/chrome/chrome.svg" alt="Chrome" style={{ width: '16px', height: '16px', display: 'block' }} />
@@ -212,7 +212,7 @@ export default function Home() {
         </div>
 
         {/* â”€â”€â”€ LIVE 1000% REAL INTERACTIVE DIFF VIEWER â”€â”€â”€ */}
-        <div style={{ width: '100%', maxWidth: '940px', marginTop: '2.5rem' }}>
+        <div style={{ width: '100%', maxWidth: '940px', marginTop: '2.5rem', minWidth: 0 }}>
           <div className="brutal-card" style={{ padding: '0', overflow: 'hidden', boxShadow: '8px 8px 0px var(--border-color)', background: styleTheme.bg }}>
             
             {/* Mockup Toolbar Header */}
@@ -835,15 +835,22 @@ export default function Home() {
             justifyContent: 'center'
           }}>
             
-            {/* Mascot Pebble wrapper with hover animation */}
-            <div className="logo-pebble" style={{ 
-              width: '100px', 
-              height: '100px', 
-              boxShadow: '4px 4px 0px var(--border-color)',
-              flexShrink: 0 
-            }}>
-              <img src="/logo.png" alt="Inspector Raccoon" />
-            </div>
+            {/* Mascot Pebble wrapper with hover animation linking to GitHub */}
+            <a 
+              href="https://github.com/codewithevilxd/kensa" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="logo-pebble" 
+              style={{ 
+                width: '100px', 
+                height: '100px', 
+                boxShadow: '4px 4px 0px var(--border-color)',
+                flexShrink: 0,
+                display: 'block'
+              }}
+            >
+              <img src="/logo.png" alt="Inspector Raccoon" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </a>
 
             {/* Mascot details */}
             <div style={{ flex: '1', minWidth: '260px' }}>
@@ -852,15 +859,15 @@ export default function Home() {
                   <Sparkles size={16} style={{ color: 'var(--accent-yellow)', fill: 'var(--accent-yellow)' }} />
                   Meet Inspector Raccoon
                 </h3>
-                <span className="brutal-badge brutal-badge--tilted" style={{ background: 'var(--accent-pink)', color: '#fff', fontSize: '0.7rem', padding: '0.15rem 0.45rem', border: '1.5px solid var(--border-color)', display: 'inline-flex' }}>Official Mascot</span>
+                <span className="brutal-badge brutal-badge--tilted" style={{ background: 'var(--accent-pink)', color: '#fff', fontSize: '0.7rem', padding: '0.15rem 0.45rem', border: '1.5px solid var(--border-color)', display: 'flex' }}>Official Mascot</span>
               </div>
               
               <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.45', margin: '0 0 0.75rem 0' }}>
                 Meet Kensa's official helper! Built directly into the review overlay's error panel, the inspector diagnostics pop up whenever GitHub rate-limits you or a patch fails to load.
               </p>
 
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.75rem', fontWeight: '800', fontFamily: 'monospace', color: 'var(--accent-orange)', background: 'rgba(239, 68, 68, 0.08)', padding: '0.2rem 0.6rem', borderRadius: '6px', border: '1.5px solid rgba(239, 68, 68, 0.15)', width: '100%' }}>
-                <span>ðŸ¦</span> Friendly diagnostics, immediate PAT token setup, &amp; instant retries.
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.75rem', fontWeight: '800', fontFamily: 'monospace', color: 'var(--accent-orange)', background: 'rgba(239, 68, 68, 0.08)', padding: '0.2rem 0.6rem', borderRadius: '6px', border: '1.5px solid rgba(239, 68, 68, 0.15)', width: '100%' }}>
+                <span>🦝 </span> Friendly diagnostics, immediate PAT token setup, &amp; instant retries.
               </div>
             </div>
 
@@ -876,12 +883,12 @@ export default function Home() {
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="footer-grid">
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div className="brand">
+              <Link href="/" className="brand" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
                 <div className="logo-square">
                   <img src="/logo.png" alt="Kensa" />
                 </div>
                 <span className="brand-title" style={{ color: '#fff' }}>Kensa</span>
-              </div>
+              </Link>
               <p style={{ maxWidth: '300px', fontSize: '0.85rem' }}>
                 Ultra-fast GitHub PR diff viewer. Built for developers who value speed and clarity.
               </p>
@@ -899,7 +906,7 @@ export default function Home() {
               <h4>Connect</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 <li><a href="https://github.com/codewithevilxd/kensa" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</a></li>
-                <li><a href="mailto:codewithevilxd@gmail.com">Email</a></li>
+                <li><a href="mailto:codewithevilxd@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>Email</a></li>
                 <li><a href="https://nishantdev.space" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>nishantdev.space <ExternalLink size={11} /></a></li>
                 <li><a href="https://rajdev.me" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>rajdev.me <ExternalLink size={11} /></a></li>
               </ul>
