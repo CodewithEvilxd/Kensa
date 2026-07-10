@@ -747,8 +747,36 @@ p {
 }
 
 @media (max-width: 768px) {
+  .footer {
+    padding: 2.5rem 0 1.5rem; /* Reduced top/bottom padding on mobile */
+  }
+
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr; /* 2 columns on mobile instead of single column stack */
+    gap: 1.75rem; /* Smaller gap on mobile */
+    padding-bottom: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-grid > div:first-child {
+    grid-column: span 2; /* Logo/tagline takes full width on row 1 */
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-grid > div:nth-child(2),
+  .footer-grid > div:nth-child(3) {
+    grid-column: span 1; /* Navigation and Connect sit side-by-side on row 2 */
+  }
+
+  .footer h4 {
+    margin-bottom: 0.75rem; /* Less space below headings on mobile */
+  }
+
+  .footer-bottom {
+    flex-direction: column; /* Stack bottom metadata vertically */
+    align-items: center;
+    gap: 0.65rem;
+    text-align: center;
   }
 }
 
@@ -885,6 +913,45 @@ p {
   
   .stats-bar {
     grid-template-columns: 1fr;
+  }
+
+  /* Prevent heading text vertical and letter overlapping on mobile screens while retaining neo-brutalist styling */
+  h1 {
+    font-size: clamp(2.4rem, 8vw, 3.4rem) !important;
+    line-height: 1.02 !important; /* Snug styling, kept tight and punchy */
+    letter-spacing: -0.04em !important; /* Stylish tight letter spacing */
+    text-shadow: 3px 3px 0px var(--border-color) !important; /* Thick neo-brutalist text shadow */
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
+    line-height: 1.08 !important; /* Snug line height to prevent line collisions */
+    letter-spacing: -0.025em !important; /* Stylish tight letter spacing */
+    text-shadow: 2.5px 2.5px 0px var(--border-color) !important; /* Bold neo-brutalist shadow */
+  }
+
+  h3 {
+    letter-spacing: -0.02em !important; /* Snug letter spacing */
+    line-height: 1.15 !important;
+    text-shadow: 1.5px 1.5px 0px var(--border-color) !important; /* Solid neo-brutalist pop shadow */
+  }
+
+  h4 {
+    letter-spacing: -0.02em !important; /* Snug letter spacing */
+    line-height: 1.15 !important;
+    text-shadow: 1.5px 1.5px 0px var(--border-color) !important; /* Solid shadow */
+  }
+
+  .docs-hero-title {
+    letter-spacing: -0.035em !important;
+    line-height: 1.38 !important; /* Increased to allow vertical padding clearance for the highlight badge */
+    text-shadow: 2.5px 2.5px 0px var(--border-color) !important;
+  }
+
+  .italic-curve {
+    margin-top: 0.75rem; /* Push rotated badge down to prevent overlapping text above */
+    letter-spacing: -0.03em !important;
+    box-shadow: 4px 4px 0px var(--border-color) !important;
   }
 }
 
@@ -1231,6 +1298,8 @@ p {
   padding: 0.25rem 0.85rem;
   border-radius: 16px;
   display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .docs-hero-subtitle {
