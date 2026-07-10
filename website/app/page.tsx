@@ -207,6 +207,11 @@ export default function Home() {
                 <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos/src/edge/edge.svg" alt="Edge" style={{ width: '16px', height: '16px', display: 'block' }} />
                 <span style={{ fontSize: '0.75rem', fontWeight: '800' }}>Edge</span>
               </a>
+              {/* Brave */}
+              <a href="https://github.com/CodewithEvilxd/Kensa/releases/download/v1/kensa-1.0.0-brave.zip" className="brutal-badge" style={{ textDecoration: 'none', color: 'inherit', background: '#fff', padding: '0.35rem 0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', transform: 'rotate(-0.8deg)', boxShadow: '2px 2px 0px var(--border-color)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.15s ease' }} onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.05) rotate(-0.8deg)'; e.currentTarget.style.boxShadow = '4px 4px 0px var(--border-color)'; }} onMouseOut={(e) => { e.currentTarget.style.transform = 'rotate(-0.8deg)'; e.currentTarget.style.boxShadow = '2px 2px 0px var(--border-color)'; }}>
+                <img src="https://cdn.jsdelivr.net/gh/alrra/browser-logos/src/brave/brave.svg" alt="Brave" style={{ width: '16px', height: '16px', display: 'block' }} />
+                <span style={{ fontSize: '0.75rem', fontWeight: '800' }}>Brave</span>
+              </a>
             </div>
           </div>
         </div>
